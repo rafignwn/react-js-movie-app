@@ -1,7 +1,7 @@
 import React from "react";
 import CardMovie from "./CardMovie";
 
-export default function ({ movies }) {
+export default function MovieList({ movies }) {
   return (
     <div className="movie-list">
       {movies ? (
