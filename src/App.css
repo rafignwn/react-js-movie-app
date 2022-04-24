@@ -8,11 +8,20 @@
 }
 
 body {
-    background-color: #F1EFE9;
+    background-color: #010409;
     color: #282828;
 }
 button {
     all: unset;
+}
+.loading, .not-found {
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    padding: 20px 0;
+}
+.not-found {
+    width: 100%;
 }
 .container {
     min-width: 100%;
@@ -22,7 +31,7 @@ button {
     margin-top: 1rem;
 }
 .title, .title-movie {
-    color: #282828;
+    color: #f0fff0;
 }
 .title {
     text-align: center;
@@ -35,7 +44,7 @@ button {
 .title h1::after {
     position: absolute;
     content: '';
-    background: linear-gradient( to right, transparent 40%, #F1EFE9 100%);
+    background: linear-gradient( to top, transparent 40%, #010409 100%);
     width: 100%;
     height: 100%;
     top: 0;
@@ -59,29 +68,30 @@ button {
     top: 0;
     padding: 20px;
     padding-right: 60px;
-    background: rgba(255, 255, 255, .5);
+    background: #0D1117;
     backdrop-filter: blur(10px);
     outline: none;
     border: none;
     font-size: 1.1rem;
     font-weight: 400;
     letter-spacing: .6px;
-    color: #282828;
+    color: #C9D1D9;
     border-radius: 5px;
     font-weight: 400;
+    border: 1px solid transparent;
     box-shadow: 0 5px 10px rgba(100, 100, 100, .06);
     transition: all 250ms ease-in-out;
     /* BAB9B9 */
 }
 .search-bar input::placeholder {
-    color: #4948489c;
+    color: #fdfdfd77;
 }
 .search-bar input:focus {
     box-shadow: 0 2px 5px rgba(50, 50, 50, .1);
-    border: 1px solid rgba(40, 40, 40, .5);
+    border-color: rgba(40, 40, 40, .5);
 }
 .search-bar input:focus ~ button > svg#Capa_1 {
-    fill: rgba(40, 40, 40, .9);
+    fill: rgba(228, 228, 228, 0.9);
 }
 .search-bar .btn {
     position: absolute;
@@ -93,7 +103,7 @@ button {
 }
 svg#Capa_1 {
     min-width: 20px;
-    fill: #28282877;
+    fill: #fdfdfd77;
     transition: fill 250ms ease-in-out;
 }
 .movie-list {
@@ -110,7 +120,8 @@ svg#Capa_1 {
     width: calc(100% / 3 - 80px);
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(40, 40, 40, .1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .9);
+    border: 1px solid #0D1117;
     cursor: pointer;
 }
 .card-movie .type {
@@ -151,7 +162,7 @@ svg#Capa_1 {
     left: 0;
     padding: 110px 10px 10px 10px;
     width: 100%;
-    background: linear-gradient(to bottom, transparent 0%, #282828 100%);
+    background: linear-gradient(to bottom, transparent 0%, #010409 100%);
 }
 .card-movie .desc .title {
     text-align: left;

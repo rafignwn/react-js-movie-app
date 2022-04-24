@@ -7,7 +7,9 @@ export default function ({ movies }) {
       {movies ? (
         movies?.map((movie) => <CardMovie key={movie.imdbID} movie={movie} />)
       ) : (
-        <h1>No Movie Found</h1>
+        <div className="not-found">
+          <h1>No Movie Found</h1>
+        </div>
       )}
     </div>
   );
