@@ -1,8 +1,12 @@
 import React from "react";
 
-export default function CardMovie({ movie }) {
+export default function CardMovie({ showDetail, movie }) {
   return (
-    <div className="card-movie" key={movie.imdbID}>
+    <div
+      className="card-movie"
+      key={movie.imdbID}
+      onClick={() => showDetail(movie.imdbID)}
+    >
       <div className={`type ${movie.Type}`}>{movie.Type}</div>
       <img
         src={
@@ -14,7 +18,9 @@ export default function CardMovie({ movie }) {
       />
       <div className="desc">
         <p className="title">{movie.Title}</p>
-        <p className="year">{movie.Year}</p>
+        <p className="year">
+          {movie?.Year.length === 5 ? movie?.Year.slice(0, 4) : movie?.Year}
+        </p>
       </div>
     </div>
   );
