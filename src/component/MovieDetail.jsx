@@ -55,7 +55,7 @@ export default function MovieDetail({ handlerHideDetail, idMovie }) {
             <p className="mt-1 detail-etc">
               {movie?.Runtime} | {movie?.Genre} | {movie.Released}
             </p>
-            <p className="mt-1 movie-plot">{movie?.Plot}</p>
+            <p className="mt-2 movie-plot">{movie?.Plot}</p>
             <p className="mt-1 movie-rating">
               <span className="sub-title">Rating: </span> {movie?.imdbRating} /
               10 | from {movie?.imdbVotes} users
