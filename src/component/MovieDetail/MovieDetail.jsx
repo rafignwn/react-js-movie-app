@@ -1,34 +1,59 @@
 import React, { useEffect, useState } from "react";
-import { API_KEY, LINK_MOVIE } from "../Key";
+import { API_KEY, LINK_MOVIE } from "./../../Key";
+import Loader from "./../Loading/Loader";
+import ErrorMessage from "./../Error/ErrorMessage";
+import "./movieDetailStyles.css";
 
 export default function MovieDetail({ handlerHideDetail, idMovie }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(`${LINK_MOVIE}apiKey=${API_KEY}&i=${idMovie}`)
-      .then((response) => response.json())
-      .then((result) => setMovie(result))
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
+    console.log("movie detail");
+    getMovieDetail();
+    // eslint-disable-next-line
   }, [idMovie]);
+
+  async function getMovieDetail() {
+    if (idMovie) {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          `${LINK_MOVIE}apiKey=${API_KEY}&i=${idMovie}`
+        );
+        const result = await response.json();
+        setMovie(result);
+        setError(null);
+        setIsLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setIsLoading(false);
+      }
+    }
+  }
 
   return (
     <div className={`movie-detail ${idMovie && "show-detail"}`}>
+      <button className="btn-close" onClick={handlerHideDetail}>
+        Close
+      </button>
       {isLoading ? (
-        <div className="loading">
-          <h1>Loading...</h1>
-        </div>
-      ) : movie.Error ? (
-        <div className="not-found">
-          <h2>{movie.Error}</h2>
+        <Loader />
+      ) : movie.Error || error ? (
+        <div
+          style={{
+            margin: "auto",
+          }}
+        >
+          <Loader />
+          <ErrorMessage
+            handlerRefresh={getMovieDetail}
+            message={error ? error : movie.Error}
+          />
         </div>
       ) : (
         <>
-          <button className="btn-close" onClick={handlerHideDetail}>
-            Close
-          </button>
           <div className="detail-on-hp">
             <h1 className="movie-title">{movie?.Title}</h1>
             <p className="year-type">

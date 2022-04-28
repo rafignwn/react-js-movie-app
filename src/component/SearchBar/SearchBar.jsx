@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ReactComponent as IconSearch } from "./../search-icon.svg";
+import { ReactComponent as IconSearch } from "./../../search-icon.svg";
+import "./searchBarStyles.css";
 
 export default function SearchBar({ handlerSearchMovie }) {
   const [keywordMovie, setKeywordMovie] = useState("");

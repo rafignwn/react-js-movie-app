@@ -1,0 +1,61 @@
+.error-msg {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #dfe7e7;
+}
+.offline-error h6 {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.offline-error p {
+    font-size: 1rem;
+    color: #dfe7e7;
+    margin: 12px;
+}
+.btn-try {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: .5px;
+    border:1px solid #000022;
+    color: #ffff;
+    background: linear-gradient(to right, #4b6cb7, #182848);;
+    padding: 8px 22px;
+    border-radius: 32% 68% 40% 60% / 63% 39% 61% 37%;
+    animation-name: borderAnimate;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transition: all 2s ease-in-out;
+}
+.btn-try:hover {
+    /* animation: none; */
+    transform: scale(1.05); 
+    background: linear-gradient(to right, #514A9D, #24C6DC); 
+    
+}
+
+@keyframes borderAnimate {
+    100%,0% {
+        border-radius: 45% 55% 61% 39% / 52% 32% 68% 48% ;
+    }
+    20% {
+        border-radius: 45% 55% 49% 51% / 53% 55% 45% 47% ;
+    }
+    30% {
+        border-radius: 55% 45% 52% 48% / 52% 44% 56% 48% ;
+    }
+    50% {
+        border-radius: 31% 69% 12% 88% / 28% 48% 52% 72% ;
+    }
+    60% {
+        border-radius: 30% 70% 25% 75% / 35% 44% 56% 65% ;
+    }
+    70% {
+        border-radius: 76% 24% 63% 37% / 52% 66% 34% 48% ;
+    }
+    80% {
+        border-radius: 31% 69% 17% 83% / 75% 45% 55% 25% ;
+    }
+}

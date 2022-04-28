@@ -1,4 +1,5 @@
 import React from "react";
+import "./cardMovieStyles.css";
 
 export default function CardMovie({ showDetail, movie }) {
   return (
